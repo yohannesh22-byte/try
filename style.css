@@ -1,0 +1,182 @@
+:root {
+    --bg-dark: #0f0a1e;
+    --bg-card: #1a142e;
+    --primary: #8a2be2;
+    --accent: #00f2ff;
+    --text-main: #e0d7f5;
+    --text-dim: #a095b5;
+    --error: #ff4d4d;
+    --success: #00ff88;
+    --warning: #ffaa00;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; }
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.hidden { display: none !important; }
+
+.screen {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.card {
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(138, 43, 226, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.neon-text {
+    color: var(--accent);
+    text-shadow: 0 0 10px var(--accent);
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #251b40;
+    border: 1px solid #3d2b63;
+    border-radius: 8px;
+    color: white;
+    outline: none;
+}
+
+input:focus { border-color: var(--primary); }
+
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, var(--primary), #5d16a8);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover { filter: brightness(1.2); transform: scale(1.02); }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.role-card {
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
+
+.role-card:hover {
+    border-color: var(--primary);
+    background: #251b40;
+    transform: translateY(-5px);
+}
+
+.role-card .icon { font-size: 50px; margin-bottom: 20px; }
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Scanner */
+#reader {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid var(--primary);
+}
+
+.scan-status {
+    margin-top: 20px;
+    padding: 15px;
+    background: #251b40;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Dashboard */
+#owner-view { justify-content: flex-start; max-width: 1000px; margin: 0 auto; }
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid #3d2b63;
+}
+
+.table-container {
+    width: 100%;
+    background: var(--bg-card);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 15px; text-align: left; border-bottom: 1px solid #251b40; }
+th { background: #251b40; color: var(--text-dim); }
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.badge-red { background: rgba(255, 77, 77, 0.2); color: var(--error); }
+.badge-orange { background: rgba(255, 170, 0, 0.2); color: var(--warning); }
+.badge-green { background: rgba(0, 255, 136, 0.2); color: var(--success); }
+
+.error-msg { color: var(--error); margin-top: 10px; font-size: 14px; }
